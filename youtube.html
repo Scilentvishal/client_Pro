@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video UI</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            position: relative;
+        }
+
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .related-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .related-video {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .related-video:hover {
+            transform: scale(1.05);
+        }
+
+        .related-video img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .related-video-title {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>YouTube Video UI</h1>
+    </header>
+
+    <div class="video-container">
+        <div class="video-player">
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="YouTube video player"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+        </div>
+
+        <div class="video-info">
+            <div class="video-title">Video Title Goes Here</div>
+            <div class="video-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget felis velit.
+            </div>
+        </div>
+    </div>
+
+    <div class="related-videos">
+        <div class="related-video">
+            <img src="https://via.placeholder.com/300" alt="Related Video 1">
+            <div class="related-video-title">Related Video 1</div>
+        </div>
+
+        <div class="related-video">
+            <img src="https://via.placeholder.com/300" alt="Related Video 2">
+            <div class="related-video-title">Related Video 2</div>
+        </div>
+
+        <!-- Add more related videos as needed -->
+    </div>
+
+</body>
+</html>
