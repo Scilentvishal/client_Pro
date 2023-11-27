@@ -92,20 +92,11 @@
     </header>
 
     <div class="video-container">
-        <div class="video-player">
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen
-            ></iframe>
-        </div>
+        <div class="video-player" id="mainVideo"></div>
 
         <div class="video-info">
-            <div class="video-title">Video Title Goes Here</div>
-            <div class="video-description">
+            <div class="video-title" id="title">Video Title Goes Here</div>
+            <div class="video-description" id="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget felis velit.
             </div>
         </div>
@@ -125,5 +116,33 @@
         <!-- Add more related videos as needed -->
     </div>
 
+    <script>
+        let data = JSON.parse(localStorage.getItem("video"));
+
+        console.log(data);
+
+        function playVideo() {
+            let container = document.getElementById("mainVideo");
+            let title = document.getElementById("title");
+            let description = document.getElementById("description");
+
+            title.textContent = data?.snippet?.title
+            description.textContent = data?.snippet?.description
+            
+            let iframe = document.createElement("iframe");
+
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.src = `https://www.youtube.com/embed/${data?.videoId}`;
+            iframe.title = "YouTube video player";
+            iframe.frameBorder = "0";
+            iframe.allowfullscreen = true;
+
+            container.appendChild(iframe);
+        }
+
+        // Call playVideo function to load the video
+        playVideo();
+    </script>
 </body>
 </html>
