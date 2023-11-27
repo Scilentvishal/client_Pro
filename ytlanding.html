@@ -57,6 +57,7 @@
         }
 
         .video-card {
+            cursor: pointer;
             /* border-radius: 8px; */
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -108,15 +109,7 @@
 
             <div class="recommended-videos" id="videocontainer">
                 <!-- Recommended Video 1 -->
-                <div class="video-card">
-                    <div>
-                        <img src="https://via.placeholder.com/300" alt="Video 1">
-                    </div>
-                    <div class="video-info">
-                        <div class="video-title">Video Title 1</div>
-                        <div class="video-channel">Channel Name</div>
-                    </div>
-                </div>
+               
 
                 <!-- Recommended Video 2 -->
                 <!-- Add more recommended videos as needed -->
@@ -133,6 +126,7 @@
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
+            append(data.items)
             console.log('Playlist Data:', data);
             // You can handle the data as needed
         } catch (error) {
@@ -140,17 +134,34 @@
         }
     }
 
-    fetchPlaylists();
-function append(data){
-    let container = document.getElementById("videocontainer")
+    function append(data) {
+    let container = document.getElementById("videocontainer");
 
-    data.forEach(({snippet,id:{videoId}}) => {
+    data.forEach(({ snippet, id: { videoId } }) => {
         let img = snippet.thumbnails.high.url;
-        let name = snippet.title
-        let channelTitle = snippet.channelTitle
+        let title = snippet.title;
+        let channelTitle = snippet.channelTitle;
+
+        ////////////////////////////////////////////////////
+        let div = document.createElement('div');
+        div.className = 'video-card';
+        div.innerHTML = `
+            <div>
+                <img src="${img}" alt="${title}">
+            </div>
+            <div class="video-info">
+                <div class="video-title">${title}</div>
+                <div class="video-channel">${channelTitle}</div>
+            </div>
+        `;
+
+        container.append(div);
     });
 }
-          
+
+fetchPlaylists();
+
+    
          </script>
     </body>
 </html>
