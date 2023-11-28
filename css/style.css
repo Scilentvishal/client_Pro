@@ -446,7 +446,7 @@ header.sticky{
 	.navbar{
 		position: absolute;
 		top: 100%;
-		right: -100%;
+		right: -130%;
 		width: 300px;
 		height: 110vh;
 		background: var(--main-color);
