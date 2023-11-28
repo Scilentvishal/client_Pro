@@ -102,6 +102,7 @@
             <div class="video-description" id="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget felis velit.
             </div>
+            
         </div>
     </div>
     <!-- 
@@ -150,16 +151,18 @@
             title.textContent = data?.title
             // description.textContent = data?.description
 
-            let iframe = document.createElement("iframe");
+            let iframe = `
+            <iframe src="https://www.youtube.com/embed/${data?.resourceId.videoId}" width="560" height="315" title="Youtube Video Player" frameBorder="0" allowfullscreen></iframe>
+            `;
 
-            iframe.width = "560";
-            iframe.height = "315";
-            iframe.src = `https://www.youtube.com/embed/${data?.resourceId.videoId}`;
-            iframe.title = "YouTube video player";
-            iframe.frameBorder = "0";
-            iframe.allowfullscreen = true;
+            // iframe.width = "560";
+            // iframe.height = "315";
+            // iframe.src = `https://www.youtube.com/embed/${data?.resourceId.videoId}`;
+            // iframe.title = "YouTube video player";
+            // iframe.frameBorder = "0";
+            // iframe.allowfullscreen = true; 
 
-            container.appendChild(iframe);
+            container.innerHTML = iframe;
         }
 
         // Call playVideo function to load the video
