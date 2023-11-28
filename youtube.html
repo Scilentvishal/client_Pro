@@ -5,7 +5,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>YouTube Video UI</title>
-
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+      />
         <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -22,8 +26,9 @@
         }
 
         .video-container {
+            margin-top: 5rem;
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 5rem auto 20px auto;
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -31,6 +36,7 @@
         }
 
         .video-player {
+            
             width: 100%;
             height: 0;
             padding-bottom: 56.25%;
@@ -46,7 +52,7 @@
             left: 0;
         }
 
-        .video-info {
+        .videoInfo {
             padding: 20px;
         }
 
@@ -91,17 +97,33 @@
     <body>
 
         <header>
-            <h1>YouTube Video UI</h1>
-        </header>
+            <a href="#" class="logo">
+              <img src="img/logo.png" />
+            </a>
+      
+            <ul class="navbar">
+              <li><a href="/">Home</a></li>
+              <li><a href="#Podcast">Podcast</a></li>
+              <li><a href="allCourses.html">Courses</a></li>
+              <li><a href="#about">About Us</a></li>
+              <!-- <li><a href="#Communities">Communities</a></li> -->
+            </ul>
+      
+            <div class="header-icons">
+              <a href="#"><i class="bx bx-user"></i></a>
+              <a href="#"><i class="bx bx-heart"></i></a>
+              <a href="#"><i class="bx bx-cart"></i></a>
+              <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+          </header>
 
         <div class="video-container">
             <div class="video-player" id="mainVideo"></div>
 
-            <div class="video-info">
+            <div class="videoInfo">
                 <div class="video-title" id="title">Video Title Goes Here</div>
                 <div class="video-description" id="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    eget felis velit.
+                    
                 </div>
 
             </div>
