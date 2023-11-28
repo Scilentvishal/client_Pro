@@ -101,7 +101,7 @@
             </div>
         </div>
     </div>
-
+<!-- 
     <div class="related-videos">
         <div class="related-video">
             <img src="https://via.placeholder.com/300" alt="Related Video 1">
@@ -113,8 +113,7 @@
             <div class="related-video-title">Related Video 2</div>
         </div>
 
-        <!-- Add more related videos as needed -->
-    </div>
+    </div> -->
 
     <script>
         let data = JSON.parse(localStorage.getItem("video"));
@@ -126,8 +125,8 @@
             let title = document.getElementById("title");
             let description = document.getElementById("description");
 
-            title.textContent = data?.snippet?.title
-            description.textContent = data?.snippet?.description
+            title.textContent = data?.title
+            description.textContent = data?.description
             
             let iframe = document.createElement("iframe");
 

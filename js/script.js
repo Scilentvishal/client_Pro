@@ -21,14 +21,14 @@ window.onscroll = () => {
 const apiKey = 'AIzaSyBLBgv1qQcPij0nR9xS9IP5tm6dLjYdmLE'; // Replace with your YouTube Data API key
 const channelId = 'UCA6yfpYhy5sWMjRGOT-OAIQ'; // Replace with the channel ID
 
-const apiUrl = `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=25&key=${apiKey}`;
+const apiUrl = `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=8&key=${apiKey}`;
 
 async function fetchPlaylists() {
 	try {
 		const response = await fetch(apiUrl);
 		const data = await response.json();
 		append(data.items);
-		console.log('Playlist Data:', data.items.map((playlist => playlist.id)));
+		// console.log('Playlist Data:', data.items.map((playlist => playlist.id)));
 		// You can handle the data as needed
 	} catch (error) {
 		console.error('Error fetching playlist:', error);
@@ -39,7 +39,7 @@ function append(data) {
 	let container = document.getElementById("videocontainer");
 
 	data.forEach(({ snippet, id}) => {
-		let img = snippet.thumbnails.high.url;
+		let img = snippet?.thumbnails?.high?.url;
 		let title = snippet.title;
 		let channelTitle = snippet.channelTitle;
 
