@@ -113,7 +113,6 @@
                 const response = await fetch(apiUrl);
                 const data = await response.json();
                 append(data.items);
-                console.log('Playlist Data:', data);
                 // You can handle the data as needed
             } catch (error) {
                 console.error('Error fetching playlist:', error);
@@ -138,10 +137,7 @@
                 <div class="video-channel">${channelTitle}</div>
             </div>
         `;
-                let data = {
-                    snippet,
-                    videoId
-                }
+                let data = snippet
                 div.addEventListener("click", function () {
                     localStorage.setItem("video", JSON.stringify(data));
                     window.location.href = "youtube.html"
