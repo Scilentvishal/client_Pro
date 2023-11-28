@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +33,8 @@
         .video-player {
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
             position: relative;
         }
 
@@ -85,6 +87,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -101,7 +104,7 @@
             </div>
         </div>
     </div>
-<!-- 
+    <!-- 
     <div class="related-videos">
         <div class="related-video">
             <img src="https://via.placeholder.com/300" alt="Related Video 1">
@@ -123,11 +126,30 @@
         function playVideo() {
             let container = document.getElementById("mainVideo");
             let title = document.getElementById("title");
+
+
             let description = document.getElementById("description");
 
+            // Replace this with your dynamically fetched description
+            const dynamicDescription = data?.description;
+
+            // Select the HTML element where you want to structure the description
+            // const descriptionContainer = document.getElementById('descriptionContainer');
+
+            // Split the dynamic description into paragraphs based on some delimiter (e.g., new lines)
+            const paragraphs = dynamicDescription.split('\n');
+
+            // Create a new paragraph element for each part of the description
+            paragraphs.forEach((paragraphText) => {
+                const paragraph = document.createElement('p');
+                paragraph.textContent = paragraphText.trim(); // Trim to remove extra whitespace
+                description.appendChild(paragraph);
+            });
+
+
             title.textContent = data?.title
-            description.textContent = data?.description
-            
+            // description.textContent = data?.description
+
             let iframe = document.createElement("iframe");
 
             iframe.width = "560";
@@ -144,4 +166,5 @@
         playVideo();
     </script>
 </body>
+
 </html>
