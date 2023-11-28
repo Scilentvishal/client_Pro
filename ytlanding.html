@@ -92,8 +92,8 @@
 
 <body>
 
-    <header>
-        <h1>YouTube-Like Landing Page</h1>
+    <header id="header">
+        <h1 >Course Name:- <span id="pageTitle"> Write course name</span></h1>
     </header>
 
     <div class="main-container">
@@ -101,9 +101,12 @@
     </div>
     <script>
         const apiKey = 'AIzaSyBLBgv1qQcPij0nR9xS9IP5tm6dLjYdmLE'; // Replace with your YouTube Data API key
-        const channelId = 'UC5_VmSsnYLTYRFMVeRRqV0A'; // Replace with the channel ID
-
-        const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=100&key=${apiKey}`;
+        const channelId = 'UCA6yfpYhy5sWMjRGOT-OAIQ'; // Replace with the channel ID
+        let data = JSON.parse(localStorage.getItem("playlistId"));
+        let pagetitle = document.getElementById("pageTitle");
+        pagetitle.textContent = data?.snippet.title
+        // const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=100&key=${apiKey}`;
+        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${data?.id}&maxResults=10&key=${apiKey}`;
 
         async function fetchPlaylists() {
             try {
@@ -119,7 +122,6 @@
 
         function append(data) {
             let container = document.getElementById("videocontainer");
-
             data.forEach(({ snippet, id: { videoId } }) => {
                 let img = snippet.thumbnails.high.url;
                 let title = snippet.title;
